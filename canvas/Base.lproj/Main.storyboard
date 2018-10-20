@@ -24,26 +24,50 @@
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="2yX-ae-sSu">
                                         <rect key="frame" x="51" y="157" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ztK-kg-7LR" appends="YES" id="4vn-Kc-2Hb"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="tongue" translatesAutoresizingMaskIntoConstraints="NO" id="sIf-4q-YRh">
                                         <rect key="frame" x="177" y="158" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="1mP-2e-F68" appends="YES" id="NPz-0b-WDQ"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="wink" translatesAutoresizingMaskIntoConstraints="NO" id="re9-NT-X9B">
                                         <rect key="frame" x="303" y="157" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="G0U-kI-EJB" appends="YES" id="fPh-N6-9aL"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="excited" translatesAutoresizingMaskIntoConstraints="NO" id="DRs-Dd-xev">
                                         <rect key="frame" x="177" y="73" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="uno-aS-oHM" appends="YES" id="5Rf-2p-5ZM"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="lKC-ol-AfJ">
                                         <rect key="frame" x="303" y="73" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="QwN-IY-YW2" appends="YES" id="WIh-za-JfB"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="dead" translatesAutoresizingMaskIntoConstraints="NO" id="9T7-oD-hNt">
                                         <rect key="frame" x="51" y="73" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="X2W-nt-GkF" appends="YES" id="mec-iV-rH0"/>
+                                        </connections>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="VUN-jE-iSx">
                                         <rect key="frame" x="197" y="23" width="20" height="14"/>
@@ -67,7 +91,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="QBV-7a-lzN">
                     <connections>
-                        <action selector="didPanTray:" destination="BYZ-38-t0r" id="KFn-vH-lcS"/>
+                        <action selector="didPanTray:" destination="BYZ-38-t0r" id="rve-gU-VX0"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="X2W-nt-GkF">
+                    <connections>
+                        <action selector="didPanFace:" destination="BYZ-38-t0r" id="0ae-hX-icF"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="uno-aS-oHM">
+                    <connections>
+                        <action selector="didPanFace:" destination="BYZ-38-t0r" id="tjM-cq-lJ1"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="QwN-IY-YW2">
+                    <connections>
+                        <action selector="didPanFace:" destination="BYZ-38-t0r" id="PS6-dX-9NJ"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ztK-kg-7LR">
+                    <connections>
+                        <action selector="didPanFace:" destination="BYZ-38-t0r" id="mts-ht-Xt0"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="1mP-2e-F68">
+                    <connections>
+                        <action selector="didPanFace:" destination="BYZ-38-t0r" id="rHc-RF-66h"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="G0U-kI-EJB">
+                    <connections>
+                        <action selector="didPanFace:" destination="BYZ-38-t0r" id="eRH-Um-nxW"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

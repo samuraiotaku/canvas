@@ -9,7 +9,7 @@
 import UIKit
 
 class UserViewController: UIViewController {
-
+    
     @IBOutlet weak var trayView: UIView!
     var trayOriginalCenter: CGPoint!
     var trayDownOffset: CGFloat! = nil
@@ -20,7 +20,7 @@ class UserViewController: UIViewController {
     var newlyCreatedFaceOriginalCenter: CGPoint!
     
     @IBAction func didPanTray(_ sender: UIPanGestureRecognizer) {
-        var velocity = sender.velocity(in: view)
+        let velocity = sender.velocity(in: view)
         let translation = sender.translation(in: view)
         
         UIView.animate(withDuration:0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options:[] ,
@@ -50,10 +50,15 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanTray(_:)))
+        trayView.addGestureRecognizer(panGestureRecognizer)
+        
         trayDownOffset = 250
         trayUp = trayView.center // The initial position of the tray
         trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset) // The position of the tray transposed down
         // Do any additional setup after loading the view.
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,15 +66,44 @@ class UserViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func didPanFace(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+
+        if sender.state == .began {
+            let imageView = sender.view as! UIImageView
+            newlyCreatedFace = UIImageView(image: imageView.image)
+            view.addSubview(newlyCreatedFace)
+            newlyCreatedFace.center = imageView.center
+            newlyCreatedFace.center.y += trayView.frame.origin.y
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+            newlyCreatedFace.isUserInteractionEnabled = true
+            
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanFace(sender:)))
+            newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
+
+        } else if sender.state == .changed {
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+
+        } else if sender.state == .ended {
+
+        }
     }
-    */
-
+    
+    @objc func didPanFace(sender: UIPanGestureRecognizer){
+        let translation = sender.translation(in: view)
+        
+        if sender.state == .began {
+            newlyCreatedFace = sender.view as? UIImageView // to get the face that we panned on.
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center // so we can offset by translation later.
+            
+            
+        } else if sender.state == .changed {
+           newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+            
+        } else if sender.state == .ended {
+            
+        }
+    }
+    
 }
